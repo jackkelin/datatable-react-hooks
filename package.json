@@ -12,7 +12,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint . --ext .js"
+    "lint": "./node_modules/.bin/eslint \"src/**/*.js\" --config .eslintrc.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,7 +30,7 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.2.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",
@@ -38,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "shortid": "^2.2.14"

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import useFetch from '../../hooks/useFetch';
 import DataTable from '../../components/DataTable';
+import { deserialize } from '../../transformations/contacts/index.js';
+import buildTableData from './buildTableData';
+import sampleData from './sample.json';
 
-const data = {
+const mockData = {
   headers: ['Name', 'Total Value', 'Location Deals', 'Tags'],
   rows: [
     {
@@ -15,7 +19,23 @@ const data = {
 };
 
 function ContactTable() {
-  return <DataTable headers={data.headers} rows={data.rows} />;
+  // TODO: undo
+  // const [data, isLoading, isError] = useFetch('contacts', {
+  //   params: { limit: 50, include: 'deals,contactTags.tag' }
+  // });
+  const [data, isLoading, isError] = [sampleData, false, false];
+  let tableData = useMemo(() =>
+    data
+      ? buildTableData(deserialize(data, { withTags: true, withDeals: true }))
+      : undefined
+  );
+  return (
+    <div>
+      {isLoading && <h2>Loading App...</h2>}
+      {isError && <h3>Something went wrong :(</h3>}
+      {data && <DataTable headers={tableData.headers} rows={tableData.rows} />}
+    </div>
+  );
 }
 
 export default ContactTable;

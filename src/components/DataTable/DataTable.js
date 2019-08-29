@@ -3,9 +3,22 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import Table from '../Table';
 
-function DataTable({ headers, rows }) {
+function DataTable({ headers, rows, tableProps, columnProps }) {
+  const getColumnProps = index => {
+    if (!columnProps) return {};
+    let result = {};
+    for (let prop in columnProps) {
+      columnProps[prop].forEach((item, cIndex) => {
+        if (cIndex === index) {
+          result[prop] = item;
+        }
+      });
+    }
+    return result;
+  };
+
   return (
-    <Table>
+    <Table {...tableProps}>
       <Table.Head>
         <Table.Row>
           {headers.map(head => (
@@ -16,8 +29,10 @@ function DataTable({ headers, rows }) {
       <Table.Body>
         {rows.map(row => (
           <Table.Row key={shortid.generate()}>
-            {Object.keys(row).map(k => (
-              <Table.Cell key={shortid.generate()}>{row[k]}</Table.Cell>
+            {Object.keys(row).map((k, index) => (
+              <Table.Cell key={shortid.generate()} {...getColumnProps(index)}>
+                {row[k]}
+              </Table.Cell>
             ))}
           </Table.Row>
         ))}
@@ -28,7 +43,9 @@ function DataTable({ headers, rows }) {
 
 DataTable.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.string),
-  rows: PropTypes.arrayOf(PropTypes.object)
+  rows: PropTypes.arrayOf(PropTypes.object),
+  tableProps: PropTypes.object,
+  columnProps: PropTypes.object
 };
 
 export default DataTable;

@@ -2,5 +2,44 @@
   border: none;
   border-collapse: collapse;
   margin: 0;
-  border: 0;
+  border: var(--border-size) var(--border-style) var(--border-color);
+  max-width: 100%;
+  width: auto;
+}
+
+.Table__row {
+  border-top: none;
+  border-right: none;
+  border-bottom: var(--border-size) var(--border-style) var(--border-color);
+  border-left: none;
+}
+.Table__row:hover,
+.Table__row:focus {
+  background-color: var(--ocean-5);
+}
+.Table__row-head:hover,
+.Table__row-head:focus {
+  background: none;
+}
+
+.Table__cell {
+  font-size: var(--scale-3);
+  font-weight: var(--weight-light);
+  color: var(--slate-0);
+  padding: var(--size-sm) var(--size-xs);
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.Table__cell-head {
+  font-size: var(--scale-2);
+  font-weight: var(--weight-normal);
+  color: var(--slate-3);
+  padding: var(--size-xs);
+}
+.Table__cell-action {
+  font-size: var(--scale-3);
+  font-weight: var(--weight-normal);
+  color: var(--ocean-1);
+  padding: var(--size-md) var(--size-xs);
 }

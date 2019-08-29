@@ -6,8 +6,6 @@ const ENDPOINTS = {
   contacts: `${DOMAIN}contacts`
 };
 
-// TODO: Add RESOURCE_TYPES enum
-
 /**
  * Build Fetch Query String
  * @param {String} url - fetch url

@@ -1,4 +1,5 @@
 import { convertMoneyFromAndTo } from '../../utilities/conversions';
+
 const getTotalValue = deals => {
   if (!deals) return 0;
   const sum = deals.reduce((acc, curr) => {
@@ -17,18 +18,19 @@ const getTotalValue = deals => {
 
 const getLocationDeals = deals => {
   return deals.length;
-}
+};
 
+// NOTE: Hard coding location until we are able to receive in API
 export default data => {
   return {
-    headers: ['Name', 'Total Value', 'Location Deals', 'Tags'],
+    headers: ['Contact', 'Total Value', 'Location', 'Deals', 'Tags'],
     rows: data.reduce((acc, curr) => {
       if (curr.fullName) {
-        console.log('curr', curr);
         acc.push({
           Name: curr.fullName,
           'Total Value': getTotalValue(curr.deals),
-          'Location Deals': getLocationDeals(curr.deals),
+          'Location ': 'Chicago, IL, USA',
+          Deals: getLocationDeals(curr.deals),
           Tags: curr.tags ? curr.tags.map(t => t.name).join(', ') : ''
         });
       }

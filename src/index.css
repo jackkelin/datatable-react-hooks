@@ -1,20 +1,81 @@
+/*
+* IMPORTS
+*/
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
 
-/** Browser Resets **/
+/*
+* CSS VARIABLES
+*/
+
+:root {
+  /* colors */
+  --slate-0: #1f2129;
+  --slate-1: #353a4a;
+  --slate-2: #4e5468;
+  --slate-3: #5f667e;
+  --slate-4: #9298ad;
+  --slate-5: #ced3e0;
+  --slate-6: #e4e7f0;
+  --slate-7: #f7f9fc;
+
+  --ocean-0: #1b54d9;
+  --ocean-1: #356ae6;
+  --ocean-2: #5884ea;
+  --ocean-3: #c1d1f7;
+  --ocean-4: #e3ebfc;
+  --ocean-5: #fafbff;
+
+  /* sizes */
+  --size-xs: 1.2rem;
+  --size-sm: 1.6rem;
+  --size-md: 1.8rem;
+  --size-lg: 2.4rem;
+  --size-xlg: 3.6rem;
+
+  /* text scale */
+  --scale-0: 1.2rem;
+  --scale-1: 1.3rem;
+  --scale-2: 1.4rem;
+  --scale-3: 1.6rem;
+  --scale-4: 1.8rem;
+  --scale-5: 2rem;
+  --scale-6: 2.4rem;
+  --scale-7: 2.8rem;
+
+  /* type */
+  --primary-font: 'Open Sans', sans-serif;
+  --weight-light: 500;
+  --weight-normal: 600;
+  --weight-bold: 700;
+
+  /* borders */
+  --border-size: 2px;
+  --border-style: solid;
+  --border-color: var(--slate-6);
+}
+
+/*
+* BROWSER RESETS
+*/
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-};
+}
 
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%;
 }
 
 body {
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-family: 'Open Sans', sans-serif;
+}
+
+.App {
+  padding: var(--size-xlg) var(--size-lg);
 }

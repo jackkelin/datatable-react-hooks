@@ -4,7 +4,7 @@ const _deserialize = data => ({
   },
   id: data.id,
   currency: data.currency,
-  value: data.value,
+  value: data.value
 });
 
 const deserialize = {

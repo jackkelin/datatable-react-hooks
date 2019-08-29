@@ -1,5 +1,5 @@
 {
-  "name": "active-campaign-assesment",
+  "name": "datatable-react-hooks",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -30,6 +30,7 @@
     ]
   },
   "devDependencies": {
+    "classnames": "^2.2.6",
     "eslint": "^6.2.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",

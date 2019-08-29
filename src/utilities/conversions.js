@@ -3,8 +3,6 @@ import rates from './fixtures/moneyRates';
 
 // Currency Exchange Rate Data gathered from https://openexchangerates.org
 fx.rates = {
-  // EUR: 0.9,
-  // USD: 1,
   ...rates.rates
 };
 fx.base = 'USD';
